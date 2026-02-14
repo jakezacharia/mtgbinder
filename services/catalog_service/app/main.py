@@ -16,7 +16,7 @@ async def root():
 @app.get("/card_test")
 def card_test():
     url = "https://api.scryfall.com/cards/named"
-    params = {"exact": "lightning bolt"}
+    params = {"exact": "dark ritual", "set": "LEA" }
     headers = {"User-Agent": "mtg-binder dev"}
     
     resp = httpx.get(url, params=params, headers=headers, timeout=10.0)
