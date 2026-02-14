@@ -6,6 +6,14 @@ dist/
 wheels/
 *.egg-info
 .DS_Store
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.coverage.*
+.vscode/
+
 
 # Virtual environments
-.venv
+.venv/
