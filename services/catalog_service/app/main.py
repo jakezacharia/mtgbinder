@@ -16,7 +16,7 @@ async def root():
 @app.get("/card_test")
 def card_test():
     url = "https://api.scryfall.com/cards/named"
-    params = {"exact": "bolt bend"}
+    params = {"exact": "lightning bolt"}
     headers = {"User-Agent": "mtg-binder dev"}
     
     resp = httpx.get(url, params=params, headers=headers, timeout=10.0)
@@ -25,18 +25,5 @@ def card_test():
         raise HTTPException(status_code=404, detail="Card not found on scryfall")
     
     resp.raise_for_status()
-    return resp.json()
-
-@app.get("/card_test2")
-def card_test():
-    url = "https://api.scryfall.com/cards/named"
-    params = {"exact": "Sephiroth, Fabled SOLDIER"}
-    headers = {"User-Agent": "mtg-binder dev"}
-    
-    resp = httpx.get(url, params=params, headers=headers, timeout=10.0)
-    
-    if resp.status_code == 404:
-        raise HTTPException(status_code=404, detail="Card not found on scryfall")
-    
-    resp.raise_for_status()
+    # this returns the entire json blob 
     return resp.json()
