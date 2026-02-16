@@ -6,6 +6,12 @@
     <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
 </head>
 <body>
+    <p>Search For A Card</p>
+<form method="get" action="/card">
+  <input type="text" name="q" placeholder="Search card name" />
+  <button type="submit">Search</button>
+</form>    
+    
     <p>
         {% if error %}
         <p> {{ error }}</p>

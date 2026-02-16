@@ -13,7 +13,7 @@ wheels/
 htmlcov/
 .coverage.*
 .vscode/
-
+notes.txt
 
 # Virtual environments
 .venv/

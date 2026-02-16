@@ -27,3 +27,15 @@ def card_test():
     resp.raise_for_status()
     # this returns the entire json blob 
     return resp.json()
+
+@app.get("/card")
+async def search_card(q: str):
+    url = "https://api.scryfall.com/cards/named"
+    params = {"fuzzy": q} # fuzzy search for now, eventually return all that include words 
+    headers = {"User-Agent": "mtg-binder dev"}
+    
+
+    resp = httpx.get(url, params=params, headers=headers, timeout=10.0)
+    
+    resp.raise_for_status()
+    return resp.json() # convert response to a dict
